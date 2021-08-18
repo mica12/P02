@@ -1,8 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-
+import csv
 
 url='http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html'
+
+en_tete=['product_page_url', 'upc', 'title', 'price_including_tax', 'price_excluding_tax', 'number_available','product_description', 'category', 'review_rating', 'image_url']
 
 response= requests.get(url)
 
@@ -49,6 +51,12 @@ category=lis[2].text
 	
 #recuperer review_rating dans la table
 review_rating=table[6].text	
+
+
+with open('extraction_un_livre.csv', 'w') as csv_file:
+	writer=csv.writer(csv_file, delimiter=',')
+	writer.writerow(en_tete)
+
 
 
 print(url)
