@@ -38,11 +38,10 @@ for k in range(len(a)-1):
 	extrait_lien_categorie=extrait_lien_categorie.replace('https://books.toscrape.com/catalogue/category/books/',"")
 	extrait_lien_categorie=extrait_lien_categorie.replace('/index.html',"")
 	extraits_lien_categorie.append(extrait_lien_categorie)
-
+#fin boucle for 
 
 #debut de boucle pour parser l'ensemble du site et creer les csv de chaque categorie
 for m in range(len(liens_category)):
-
 	nom_fichier_csv='extraction_une_categorie_'+noms_category[m]+'.csv'
 
 	#en tete d'un fichier csv
